@@ -7,6 +7,7 @@
 
 using namespace std;
 
+// If orders are valid store them in vector
 vector<Order> ordersVector;
 
 // read file variables
@@ -49,6 +50,7 @@ void readCsvFile(){
 int main(){
 
     readCsvFile();
+ 
 
     return 0;
 }
