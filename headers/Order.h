@@ -11,6 +11,12 @@ private:
     double price;
     int quantity;
 
+    //system generated records
+    string orderID;
+    int status;
+
+    string generateSystemOrderID();
+
 public:
     Order(string clientOrder_ID, string instrument_name, int side_type, double price_of_instrument, int total_quantity);
 
@@ -19,4 +25,6 @@ public:
     int getSide();
     double getPrice();
     int getQuantity();
+    string getOrderID();
+
 };

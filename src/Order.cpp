@@ -1,4 +1,6 @@
 #include "../headers/Order.h"
+#include <sstream>
+#include <iomanip>
 
 using namespace std;
 
@@ -8,6 +10,10 @@ Order::Order(string clientOrder_ID, string instrument_name, int side_type, doubl
     side = side_type;
     price = price_of_instrument;
     quantity = total_quantity;
+
+    //generate order id
+    orderID = generateSystemOrderID();
+    status = 0; // 0-new 1-rejected 2-fill 3-partially fill
 }
 
 string Order::getClientOrderID() {
@@ -28,4 +34,19 @@ double Order::getPrice() {
 
 int Order::getQuantity() {
     return quantity;
+}
+
+string Order::getOrderID(){
+    return orderID;
+}
+
+string Order::generateSystemOrderID(){
+    
+    static int systemIDCounter = 1;
+
+    // Generate a unique system ID
+    std::stringstream ss;
+    ss << "ord" << std::setw(4) << std::setfill('0') << systemIDCounter++;
+    string orderIDString = ss.str();
+    return orderIDString;
 }

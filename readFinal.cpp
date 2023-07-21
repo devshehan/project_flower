@@ -50,6 +50,10 @@ void readCsvFile(){
 int main(){
 
     readCsvFile();
+
+    for(auto i : ordersVector){
+        cout << i.getClientOrderID() << " -> " << i.getOrderID() << endl;
+    }
  
 
     return 0;
